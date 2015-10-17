@@ -1,0 +1,8 @@
+1. T (the final spanning tree) is defined to be the empty set;
+2. For each vertex v of G, make the empty set out of v;
+3. Sort the edges of G in ascending (non-decreasing) order;
+4. For each edge (u, v) from the sored list of step 3.
+      If u and v belong to different sets
+         Add (u,v) to T;
+         Get together u and v in one single set;
+5. Return T
