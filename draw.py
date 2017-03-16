@@ -10,7 +10,7 @@ class Node(pygame.sprite.Sprite):
     SIZE = 45
     def __init__(self,x,y):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("node.png").convert_alpha()
+        self.image = pygame.image.load("res/node.png").convert_alpha()
         self.image.set_colorkey((255,255,255))
         self.image = pygame.transform.smoothscale(self.image,(Node.SIZE ,Node.SIZE))
         self.rect = self.image.get_rect()
@@ -156,7 +156,7 @@ class DrawApp(object):
         self.arc_list= []
         self.node_count = 1
         self.nodeTouched = False
-        self.background_image = pygame.image.load("back2.jpg").convert_alpha()
+        self.background_image = pygame.image.load("res/back2.jpg").convert_alpha()
         self.background_image.fill((128, 128, 128, 220), None, pygame.BLEND_RGBA_MULT)
         self.graf = Graf(self)
         
@@ -218,7 +218,6 @@ class DrawApp(object):
                 self.s += chr(event.key)
                 self.s_console.add_text("s= "+self.s)
             if event.key == pygame.K_RETURN:
-
                 self.arc_to_weigh.set_arc_cost(int(self.input))
                 self.graf.adj_matrix[self.arc_to_weigh.start_node.val-1][self.arc_to_weigh.end_node.val-1] = self.arc_to_weigh.val
                 if(not DrawApp.DIRECTED_GRAPH):
@@ -315,7 +314,7 @@ def main_menu():
     OrientedOption = {"rect":pygame.Rect(300, 100, 190, 50),'label' : myfont.render("Orientat", 1, (225,250,225)),'color':(10,170,10)}
     UnOrientedOption = {"rect":pygame.Rect(500, 100, 190, 50),'label' : myfont.render("Neorientat", 1, (225,250,225)),'color':(55,50,255)}
 
-    background_image = pygame.image.load("back.jpg").convert_alpha()
+    background_image = pygame.image.load("res/back.jpg").convert_alpha()
     background_image.fill((128, 128, 128, 220), None, pygame.BLEND_RGBA_MULT)
 
     withCostOption ={"rect":pygame.Rect(300,240, 190, 50),'label': myfont.render("Cu cost", 1, (225,250,225)),'color':(55,50,255)}
